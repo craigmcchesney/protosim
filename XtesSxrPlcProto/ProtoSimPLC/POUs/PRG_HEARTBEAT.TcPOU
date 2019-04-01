@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="PRG_HEARTBEAT" Id="{07c2a92e-360a-4a8d-8ce4-0b8057ef0355}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_HEARTBEAT
+VAR
+	heartbeat AT %Q* : INT := 0;
+	actuatorOn AT %Q* : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[heartbeat := heartbeat + 1;
+
+IF heartbeat MOD 1000 = 0
+	THEN actuatorOn := NOT actuatorOn;
+END_IF
+
+IF heartbeat MOD 30000 = 0
+	THEN heartbeat := 0;
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_HEARTBEAT">
+      <LineId Id="8" Count="4" />
+      <LineId Id="16" Count="3" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="PRG_HEARTBEAT" Id="{9825cba9-7f55-4d9c-8957-c820f6242cab}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_HEARTBEAT
+VAR
+	actuatorState : BOOL := FALSE;
+	actuatorCount : UDINT;
+	{attribute 'pytmc' := ' pv: actuatorOn '}
+	actuatorOn AT %I* : BOOL;
+	{attribute 'pytmc' := ' pv: heartbeat '}
+	heartbeat AT %I* : INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF actuatorOn AND NOT actuatorState
+	THEN 
+		actuatorCount := actuatorCount + 1;
+		actuatorState := TRUE;
+ELSIF NOT actuatorOn
+	THEN
+		actuatorState := FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_HEARTBEAT">
+      <LineId Id="6" Count="6" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

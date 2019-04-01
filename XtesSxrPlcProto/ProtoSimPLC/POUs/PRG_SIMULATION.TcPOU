@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="PRG_SIMULATION" Id="{ec1bb7bb-e266-4a42-8f10-1901cc9e9ecf}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_SIMULATION
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// valves
+
+fbVgc_TV2K4_VGC_1(
+	stAVol := stVl_Start,
+	stBvol := stVl_Proto,
+	stValve := stVgc_TV2K4_VGC_1
+	); // VV9S
+	
+fbVgc_MR1K4_VGC_1(
+	stAVol := stVl_Proto,
+	stBvol := stVl_End,
+	stValve := stVgc_MR1K4_VGC_1
+	); // VV10S
+
+// gauges
+
+fbMks275_TV2K4_GPI_1(stVolume := stVl_Proto, stGauge:= stMks275_TV2K4_GPI_1);
+fbMks500_TV2K4_GCC_1(stVolume := stVl_Proto, stGauge:= stMks500_TV2K4_GCC_1);
+
+// pumps
+
+fbGamPip_TV2KO_PIP_1(stVolume := stVl_Proto, stPip := stGamPip_TV2KO_PIP_1);]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_SIMULATION">
+      <LineId Id="6" Count="0" />
+      <LineId Id="22" Count="1" />
+      <LineId Id="25" Count="3" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="29" Count="3" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="42" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

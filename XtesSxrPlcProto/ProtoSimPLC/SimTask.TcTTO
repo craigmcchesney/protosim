@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <Task Name="SimTask" Id="{8fee6950-e545-48e0-9226-efd8e5cddd33}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>5000</CycleTime>
+    <Priority>21</Priority>
+    <PouCall>
+      <Name>PRG_HEARTBEAT</Name>
+    </PouCall>
+    <PouCall>
+      <Name>MAIN</Name>
+    </PouCall>
+    <TaskFBGuid>{13b9bbc4-413b-40c8-a6e5-252339aa805e}</TaskFBGuid>
+    <Fb_init>{74c52fed-d9bf-45f8-935b-d56f6c615379}</Fb_init>
+    <Fb_exit>{8cecd792-7fa6-412a-923c-04a3bba7cfc6}</Fb_exit>
+    <CycleUpdate>{8a6ff01f-377d-4d59-913b-7c9105b29a97}</CycleUpdate>
+    <PostCycleUpdate>{b6beab21-c433-41e1-88c5-ddf6aaa515b9}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>
