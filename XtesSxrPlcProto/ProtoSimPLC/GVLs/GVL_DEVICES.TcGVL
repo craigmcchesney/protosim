@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <GVL Name="GVL_DEVICES" Id="{aa6862e0-b3f6-45b3-80b8-99eaa8daf3e9}">
+    <Declaration><![CDATA[VAR_GLOBAL
+	
+	Global_Leak	: REAL := 0;
+	Global_Pressure : REAL := 0.0079;
+	New_Pressure : REAL := 22.0; //Torr
+	Global_OverridePressure	: BOOL := FALSE;//initially set to be false
+
+	// volumes
+	
+	stVl_Start : ST_Volume := (
+		rVolume := 1E3, 
+		rPressure := Global_Pressure, 
+		rVLeak := Global_Leak
+		);
+	
+	stVl_Proto : ST_Volume := (
+		rVolume := 1E3, 
+		rPressure := Global_Pressure, 
+		rVLeak := Global_Leak
+		);
+		
+	stVl_End : ST_Volume := (
+		rVolume := 1E3, 
+		rPressure := Global_Pressure, 
+		rVLeak := Global_Leak
+		);
+	
+	// valves
+	
+	stVgc_TV2K4_VGC_1 : ST_VacuumValve := (q_xClsLS := TRUE, q_xOpnLS := FALSE); // VV9S
+	stVgc_MR1K4_VGC_1 : ST_VacuumValve := (q_xClsLS := TRUE, q_xOpnLS := FALSE); // VV10S
+	
+	fbVgc_TV2K4_VGC_1 : FB_VacuumValve; // VV9S
+	fbVgc_MR1K4_VGC_1 : FB_VacuumValve; // VV10S
+	
+	// gauges	
+	
+	stMks275_MR2K3_GPI_1 : ST_MKS_275 := (q_xGaugeConnected := TRUE);
+	stMks275_TV2K4_GPI_1 : ST_MKS_275 := (q_xGaugeConnected := TRUE);
+	stMks275_MR1K4_GPI_1 : ST_MKS_275 := (q_xGaugeConnected := TRUE);
+	stMks500_MR2K3_GCC_1 : ST_MKS_500 := (q_xGaugeConnected := TRUE);
+	stMks500_TV2K4_GCC_1 : ST_MKS_500 := (q_xGaugeConnected := TRUE);
+	stMks500_MR1K4_GCC_1 : ST_MKS_500 := (q_xGaugeConnected := TRUE);
+
+	fbMks275_MR2K3_GPI_1 : FB_MKS_275;
+	fbMks275_TV2K4_GPI_1 : FB_MKS_275;
+	fbMks275_MR1K4_GPI_1 : FB_MKS_275;
+	fbMks500_MR2K3_GCC_1 : FB_MKS_500;
+	fbMks500_TV2K4_GCC_1 : FB_MKS_500;
+	fbMks500_MR1K4_GCC_1 : FB_MKS_500;
+
+	// pumps
+	
+	stGamPip_TV2KO_PIP_1 : ST_GAM_PIP;
+	
+	fbGamPip_TV2KO_PIP_1 : FB_GAM_PIP;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
