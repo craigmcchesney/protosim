@@ -7,12 +7,14 @@ END_VAR
 
     ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[PRG_OverridePressure();
+      <ST><![CDATA[PRG_HEARTBEAT();
+PRG_OverridePressure();
 PRG_SIMULATION();
-PRG_HEARTBEAT();]]></ST>
+]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="16" Count="0" />
+      <LineId Id="21" Count="0" />
       <LineId Id="11" Count="0" />
       <LineId Id="15" Count="0" />
     </LineIds>

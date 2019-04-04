@@ -3,25 +3,19 @@
   <POU Name="PRG_HEARTBEAT" Id="{07c2a92e-360a-4a8d-8ce4-0b8057ef0355}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_HEARTBEAT
 VAR
-	heartbeat AT %Q* : INT := 0;
-	actuatorOn AT %Q* : BOOL;
+	heartbeat AT %Q* : UINT := 0;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[heartbeat := heartbeat + 1;
-
-IF heartbeat MOD 1000 = 0
-	THEN actuatorOn := NOT actuatorOn;
-END_IF
-
-IF heartbeat MOD 30000 = 0
+IF heartbeat > 65000
 	THEN heartbeat := 0;
 END_IF
 ]]></ST>
     </Implementation>
     <LineIds Name="PRG_HEARTBEAT">
-      <LineId Id="8" Count="4" />
-      <LineId Id="16" Count="3" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="17" Count="2" />
       <LineId Id="5" Count="0" />
     </LineIds>
   </POU>

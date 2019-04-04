@@ -7,11 +7,13 @@ END_VAR
 
     ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[PRG_PROTOTYPE();
-PRG_HEARTBEAT();]]></ST>
+      <ST><![CDATA[PRG_HEARTBEAT();
+PRG_PROTOTYPE();
+]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="2" Count="0" />
+      <LineId Id="12" Count="0" />
       <LineId Id="7" Count="0" />
     </LineIds>
   </POU>
